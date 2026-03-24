@@ -1,0 +1,80 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{isabelle,isabellesym}
+
+% further packages required for unusual symbols (see also
+% isabellesym.sty), use only when needed
+
+%\usepackage{amssymb}
+  %for \<leadsto>, \<box>, \<diamond>, \<sqsupset>, \<mho>, \<Join>,
+  %\<lhd>, \<lesssim>, \<greatersim>, \<lessapprox>, \<greaterapprox>,
+  %\<triangleq>, \<yen>, \<lozenge>
+
+%\usepackage{eurosym}
+  %for \<euro>
+
+%\usepackage[only,bigsqcap,bigparallel,fatsemi,interleave,sslash]{stmaryrd}
+  %for \<Sqinter>, \<Parallel>, \<Zsemi>, \<Parallel>, \<sslash>
+
+%\usepackage{eufrak}
+  %for \<AA> ... \<ZZ>, \<aa> ... \<zz> (also included in amssymb)
+
+%\usepackage{textcomp}
+  %for \<onequarter>, \<onehalf>, \<threequarters>, \<degree>, \<cent>,
+  %\<currency>
+
+% this should be the last package used
+\usepackage{pdfsetup}
+
+% urls in roman style, theory text in math-similar italics
+\urlstyle{rm}
+\isabellestyle{it}
+
+% for uniform font size
+%\renewcommand{\isastyle}{\isastyleminor}
+
+% typeset underscore
+% Revert to OT1 style where _ as nicely short and not lowered = more readeable
+\renewcommand\_{\leavevmode \kern.06em\vbox{\hrule width.3em}}
+\renewcommand{\isacharunderscore}{\_}%
+% normal _ has no bold version, use tt _
+% both for theory snippets and for \isakeyword uses
+\renewcommand{\isacharunderscorekeyword}{\texttt{\char`_}}%
+\let\isakeywordold=\isakeyword
+\renewcommand{\isakeyword}[1]{\isakeywordold{\def\_{{\texttt{\char`_}}}#1}}
+
+\newtheorem{task}{Task}
+\newcommand{\BeginTask}[1]{\begin{task}[{#1}]}
+\newcommand{\EndTask}{\end{task}\vspace{0.5em}}
+
+\begin{document}
+
+\title{Proof Assistants (L81): Assignment I}
+\author{Thomas Bauereiss \and Leo Stefanesco}
+\date{Lent 2026}
+\maketitle
+
+%\tableofcontents
+
+% sane default for proof documents
+%\parindent 0pt\parskip 0.5ex
+
+\input{intro}
+
+\newpage
+
+\section*{Assignment I: The IMP language in Isabelle}
+
+% generated text of all theories
+\input{session}
+
+% optional bibliography
+%\bibliographystyle{abbrv}
+%\bibliography{root}
+
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
